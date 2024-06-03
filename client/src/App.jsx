@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
+const serverUrl = window.location.hostname === 'localhost' 
+  ? 'http://localhost:8080'
+  : 'https://animal-farm-backend.vercel.app';
+
 function useAnimalSearch() {
   const [animals, setAnimals] = useState([]);
   
@@ -11,7 +15,7 @@ function useAnimalSearch() {
   
   const search = async (q) => {
     const response = await fetch(
-      'http://localhost:8080?' + new URLSearchParams({ q })
+      `${serverUrl}?` + new URLSearchParams({ q })
     );
   
     const data = await response.json();
