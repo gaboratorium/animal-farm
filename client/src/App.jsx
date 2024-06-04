@@ -34,6 +34,7 @@ function App() {
   return (
     <main>
       <h1>Animal Farm</h1>
+      <p>Start typing something 👇</p>
       <input type="text" placeholder="Search" onChange={(e) => search(e.target.value)} />
       <ul>
         {animals.map((animal) => (
